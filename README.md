@@ -19,6 +19,9 @@ Bootstrap is a powerful front-end framework that helps me build responsive websi
 ## Projects
 
 You can explore my projects here, where I demonstrate my skills in HTML, CSS, JavaScript, and Bootstrap. My projects focus on building responsive and interactive websites that provide great user experiences.
-
+## Installation
+  clone the repository:
+   bash
+   git clone https://munaam19.github.io/First_Project/portfolio/
 ## Live Demo
     https://munaam19.github.io/First_Project/portfolio/
