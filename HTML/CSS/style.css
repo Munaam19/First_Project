@@ -1,0 +1,181 @@
+*{box-sizing:border-box;}
+ 
+@media screen and (max-width:480px){
+   .depress{
+      font-size: 50px;
+      background-color: red;
+      color: springgreen;
+   }
+}
+
+ body{
+    background-color:rgba(0, 0, 0, 0.934);
+ }
+
+.parent {
+    background-color: black;
+    height: 100px;
+}
+
+
+.ul1 {
+    display: flex;
+    color:white;
+    list-style: none;
+    gap: 20px;
+    justify-content:center;
+    /* margin-bottom: 50px; */
+    font-size: 30px;
+    font-family: 'Dancing Script', cursive;
+    margin-top: -55px;
+    
+
+    
+}
+
+
+.ul2 {
+    display: flex;
+    color: aliceblue;
+    list-style: none;
+    gap:55px;
+    justify-content:end;
+    margin-right: 200px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    margin-top: -65px;
+    
+    
+    
+}
+ .m{
+
+    background-color:black;
+    width: 120px;
+    height: 60px;
+    box-sizing: border-box;
+    font-size: 30px;
+    background-attachment: fixed;
+    background-size: contain;
+    margin-left: 400px;
+    margin-top: 10px;
+  
+    
+
+ }
+
+ 
+
+ .icon_one:hover{
+    color: red;
+    font-size: 50px;
+    
+ }
+
+ 
+ .icon_two:hover{
+    color:pink;
+    font-size: 50px;
+ }
+
+
+ 
+ .icon_three:hover{
+    color:silver;
+    font-size: 50px;
+ }
+
+
+
+ 
+ .icon_four:hover{
+    color:peachpuff;
+    font-size: 50px;
+ }
+
+ 
+ 
+ .icon_five:hover{
+    color:purple;
+    font-size: 50px;
+ }
+
+
+ 
+.icon_one:active{
+
+   background-color: blueviolet;
+}
+
+
+.depress::first-letter{
+   font-size: 100px;
+   color:tomato;
+}
+
+.thought::first-letter{
+   font-size: 100px;
+   color: rosybrown;
+}
+ 
+ .img{
+    background-size: cover ;
+    position:relative;
+    left: 600px;
+    top: 200px;
+    height: 700px;
+    width: 700px;
+    /* background-color: yellowgreen; */
+    padding: 100px;
+
+ }
+
+ /* .depression{
+
+   color:violet;
+   position: relative;
+   top: 250px;
+   left: 200px ;
+   font-size: 80px;
+ } */
+
+ .depress{
+
+   position: relative;
+   top: -400px;
+   left: 180px;
+   width: 400px;
+   font-size: 30px;
+   text-align: left;
+   color: white;
+
+ }
+
+
+ .thought{
+
+   position:relative;
+   top: -790px;
+   left: 1350px;
+   width: 400px;
+   font-size: 30px;
+   color: white;
+
+   
+ }
+
+ .list{
+   font-size: 20px;
+ }
+
+ 
+
+ .depress>p::selection{
+   color:red;
+   background-color: black;
+}
+
+details>ul>li::selection{
+   color: red;
+   background-color: black;
+}

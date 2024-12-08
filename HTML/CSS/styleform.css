@@ -1,0 +1,95 @@
+*body{
+     box-sizing: border-box;
+}
+.header{
+    display: flex;
+    justify-content:space-between;
+
+}
+
+.sideh3{
+   padding-right: 10px;
+ }
+
+.name{
+    border: 2px solid black;
+    padding: 20px;
+    margin-left:200px;
+    margin-right: 1350px;   
+}
+
+.label{
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+.section{
+ 
+ 
+    height: 150px;
+}
+
+#label-One{
+    position: relative;
+    left: 500px;
+    top: -150px;
+}
+
+#label-Two{
+    position: relative;
+    left: 500px;
+    top: -145px;
+}
+
+tbody>tr>td{
+    padding: 15px;
+}
+
+thead>tr>th{
+
+    padding: 15px;
+    font-size: large;
+    font-weight: bolder;
+}
+/* 
+.choose{
+    background-color: yellow;
+ 
+} */
+
+.choose>label{
+   margin: 30px;
+   padding: 50px;
+ 
+}
+/* 
+.choosetwo{
+    background-color: yellow;
+ 
+} */
+
+.choosetwo>label{
+    margin: 35px;
+    padding: 50px;
+
+}
+  
+ .checkbox{
+
+    margin: 10px;
+    justify-content: center;
+    padding: 20px;
+ }
+
+ p{
+
+    text-align:justify;
+    font-size: 20px;
+ }
+
+ .sign{
+    display: flex;
+    justify-content: space-between;
+    }

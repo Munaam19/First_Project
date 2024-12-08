@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .bulb{
+        border: 2px solid black;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+    }
+     
+</style>
+<body>
+    <div class="bulb"></div>
+    <input type="button" value="Change Color" onclick="hey()" class="button">
+    <script>
+        function hey(){
+            var a = document.getElementsByClassName("bulb");
+            a[0].style.background = "yellow";
+        }
+    </script>
+</body>
+</html>

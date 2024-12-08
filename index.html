@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smooth Scroll Navigation</title>
+  <style>
+
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+        }
+
+
+.hero {
+            position: relative;
+            height: 100vh;
+            background-image: url('images/smoke.jpg'); /* Yahan apna image URL daalain */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.68;
+        }
+
+        .hero h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 4em;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .hero h2 {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: lightgray;
+            font-size: 2em;
+        }
+
+
+        .about {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+
+        .about img {
+            width: 50%;
+            max-width: 400px;
+            /* border: 2px solid black; */
+            margin-right: 20%;
+        }
+
+        .about-text {
+            width: 35%;
+            /* border: 2px solid black; */
+            margin-left: 20%;
+            font-size: large;
+            font-weight: 200;
+            font-style: normal;
+            font-family:'Times New Roman', Times, serif;
+            text-align: justify;
+             
+        }
+
+        
+        .education-section {
+            padding: 100px;
+            background-color: #dfd9d9;
+            display: flex;
+            flex-direction: row;
+        
+        }
+
+        header>h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .education-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+
+        .education-item i {
+            font-size: 24px;
+            color: #333;
+            margin-right: 15px;
+        }
+
+        .education-item-content {
+            flex-grow: 1;
+        }
+
+        .education-item-content h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .education-item-content p {
+            margin: 5px 0 0;
+            color: #777;
+            font-size: 0.95em;
+        }
+
+        hr {
+            width: 100%;
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 10px 0;
+        }
+
+
+        .skills-section {
+    padding: 50px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skills-column {
+    width: 45%;
+}
+
+.progressText {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.single-progress-txt {
+    margin-bottom: 20px;
+}
+
+.progress {
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    height: 20px;
+    width: 100%;
+}
+
+.progress-bar {
+    background-color: #333;
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+.single-progress-txt h3 {
+    text-align: right;
+    margin-top: 5px;
+    font-size: 1em;
+    color: #333;
+}
+
+
+ /* Experience Section */
+ .experience {
+            padding: 50px 20px;
+            background-color: #f5bfbf;
+        }
+
+        /* .experience-header {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #333;
+        } */
+
+        .experience-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .experience-column {
+            width: 45%;
+        }
+
+        .timeline {
+            border-left: 2px solid #ccc;
+            padding-left: 20px;
+        }
+
+        .timeline-content {
+            margin-bottom: 20px;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+
+        .timeline-content p {
+            font-size: 1em;
+            color: #777;
+        }
+
+         /* Portfolio Section */
+
+        /* Existing Styles for Navbar, Hero Section, etc... */
+
+        /* Portfolio Section */
+        .portfolio-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 30px 8px rgba(243, 140, 195, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.1);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .portfolio-item:hover img {
+            opacity: 0.7;
+        }
+
+        .portfolio-item .project-name {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .portfolio-item:hover .project-name {
+            opacity: 1;
+        }
+
+        /* Project Details Popup */
+        .project-details {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            padding: 20px;
+        }
+
+        .project-details .content {
+            background-color: white;
+            border-radius: 10px;
+            max-width: 90%;
+            max-height: 80%;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .project-details img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 80px;
+            background-color: #333;
+            color: white;
+            font-size: 1.5em;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .close-btn:hover {
+            background-color: #555;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        /* Form Section */
+        .contact-form {
+            width: 30%;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            margin-left:20% ;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #aaa;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #2d9cdb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        .contact-form button{
+
+            width: 50%;
+            height: 40px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 800;
+            color: #333;
+        }
+        .contact-form button:hover {
+            background-color: #2083b0;
+            
+        }
+
+        /* Personal Info Section */
+        .personal-info {
+            width: 45%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        }
+
+        .personal-info p {
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        .personal-info p span {
+            font-weight: bold;
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin-right: 15px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .social-icons a:hover {
+            color: #2d9cdb;
+        }
+
+
+
+    /* CSS Styles */
+    /* body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: flex-end;
+      background-color: #333;
+      padding: 10px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 4px;
+    }
+
+    .navbar a.active {
+      background-color: #007BFF;
+    } */
+
+    /* section {
+      height: 500px; /* Full screen height for demonstration */
+      /* padding: 20px;
+    } */ */
+/* 
+    section:nth-child(odd) {
+      background-color: #f4f4f4;
+    }
+
+    section:nth-child(even) {
+      background-color: #e0e0e0;
+    } */
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="#education" class="nav-item">Education</a>
+    <a href="#skills" class="nav-item">Skills</a>
+    <a href="#experience" class="nav-item">Experience</a>
+    <a href="#portfolio" class="nav-item">Portfolio</a>
+    <a href="#contact" class="nav-item">Contact</a>
+  </div>
+
+
+  <div class="hero">
+    <h1>I am Munaam Farooqui</h1>
+    <h2>Web Developer</h2>
+</div>
+
+
+<header> <h2 style="display: flex; flex-direction: row; justify-content: center  ;">About Me</h2></header>
+
+<div class="about">
+    <div class="about-text">
+       <!-- <header> <h2 style="display: flex; flex-direction: row; justify-content: center  ;">About Me</h2></header> -->
+        <p>My name is Munaam Farooqui, and I am a passionate web developer with expertise in both front-end and back-end development. I enjoy creating user-friendly, dynamic, and visually appealing websites that are as functional as they are aesthetically pleasing.
+
+            On the front-end, I specialize in crafting responsive designs, optimizing user experience, and utilizing modern frameworks and tools to bring ideas to life. On the back-end, I am skilled in building robust and scalable applications, managing databases, and ensuring seamless integration between various components of a web application.
+            
+            With a keen eye for detail and a dedication to continuous learning, I aim to deliver solutions that meet and exceed expectations. Whether working independently or as part of a team, I am committed to turning complex challenges into elegant, efficient, and impactful digital experiences.
+            </p>
+    </div>
+    <img src="images/smoke.jpg" alt="My Photo"> <!-- Yahan apne photo ka URL daalain -->
+</div>
+
+
+  <!-- Sections -->
+  <section id="education">
+    <header> <h2 style="display: flex; flex-direction: row; justify-content: center  ;">EDUCATION</h2></header>
+   
+    <div class="education-section">
+        <!-- <h2>Education</h2> -->
+        <div class="education-item">
+            <i class="fas fa-graduation-cap"></i>
+            <div class="education-item-content">
+                <h3>2020 - 2021</h3>
+                <hr>
+                <p><strong>Matriculation in Computer Science</strong><br>THE SMART SCHOOL<br>Karachi, Pakistan</p>
+                <p>Secured A grade with a strong focus on Computer Science subjects, building a foundation in programming and technology.</p>
+                
+            </div>
+        </div>
+        <div class="education-item" >
+            <i class="fas fa-graduation-cap"></i>
+            <div class="education-item-content">
+                <h3>2022 - 2023</h3>
+<hr>
+<p><strong>Intermediate in Computer Science</strong><br>KHATOON E PAKISTAN COLLEGE<br>Karachi, Pakistan</p>
+<p>Completed studies with a specialization in Computer Science, gaining advanced knowledge in programming and problem-solving.</p>
+
+                
+            </div>
+        </div>
+        <div class="education-item">
+            <i class="fas fa-paint-brush"></i>
+            <div class="education-item-content">
+                <h3>2024</h3>
+                <hr>
+                <p><strong>Diploma in Front-end and Back-end Development</strong><br>Aptech Institute<br>Karachi, Pakistan</p>
+                <p>Mastered front-end and back-end technologies including HTML, CSS, PHP, MySQL, and JavaScript, equipping me with practical skills for professional web development.</p>
+                
+                
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <header>
+        <h2 style="display: flex; flex-direction: row; justify-content: center;">SKILLS</h2>
+    </header>
+    
+    <div class="skills-section">
+        <!-- Left Column -->
+        <div class="skills-column">
+            <span class="progressText">MS-OFFICE</span>
+            <div class="single-progress-txt">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 90%;"></div>
+                </div>
+                <h3>90%</h3>
+            </div>
+    
+            <span class="progressText">HTML</span>
+            <div class="single-progress-txt">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 95%;"></div>
+                </div>
+                <h3>95%</h3>
+            </div>
+    
+            <span class="progressText">CSS</span>
+            <div class="single-progress-txt">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 85%;"></div>
+                </div>
+                <h3>85%</h3>
+            </div>
+    
+            <span class="progressText">JavaScript</span>
+            <div class="single-progress-txt">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 70%;"></div>
+                </div>
+                <h3>70%</h3>
+            </div>
+        </div>
+    
+        <!-- Right Column -->
+        <div class="skills-column">
+            <span class="progressText">MySQL</span>
+            <div class="single-progress-txt">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 75%;"></div>
+                </div>
+                <h3>75%</h3>
+            </div>
+    
+            <span class="progressText">PHP</span>
+            <div class="single-progress-txt">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 70%;"></div>
+                </div>
+                <h3>70%</h3>
+            </div>
+    
+            <span class="progressText">Bootstrap</span>
+            <div class="single-progress-txt">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 88%;"></div>
+                </div>
+                <h3>88%</h3>
+            </div>
+    
+            <span class="progressText">Figma</span>
+            <div class="single-progress-txt">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 70%;"></div>
+                </div>
+                <h3>70%</h3>
+            </div>
+        </div>
+    </div>
+
+  </section>
+
+  <section id="experience">
+    <header> <h2 style="display: flex; flex-direction: row; justify-content: center  ;">EXPERIENCE</h2></header>
+        <div class="experience-content">
+            <div class="experience-column">
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <h3>2023-2024</h3>
+<hr>
+<p><strong>Admin</strong><br>Educational Institute</p>
+<p>Responsible for administrative tasks, managing schedules, coordinating with staff and students, and ensuring smooth operations within the institution.</p>
+
+
+                    </div>
+                    <div class="timeline-content">
+                        <h3>2021 - 2023</h3>
+<hr>
+<p><strong>Primary Teacher</strong><br>Educational Institute</p>
+<p>Teaching primary school students in various subjects, focusing on building foundational knowledge and skills in young learners, while maintaining a supportive and engaging classroom environment.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="experience-column">
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <hr>
+                        <p><strong>MS Office Expert</strong><br>Freelancer</p>
+                        <p>Providing expert-level training and support for Microsoft Office applications, including Word, Excel, PowerPoint, and Outlook. Helping individuals and businesses optimize their workflow by offering tailored solutions, advanced features, and best practices to enhance productivity and efficiency.</p>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>2024 - present</h3>
+                        <hr>
+                        <p><strong>Front-End Developer</strong><br>Contract</p>
+                        <p>Developing dynamic and responsive websites using HTML, CSS, JavaScript, and modern front-end frameworks such as React and Vue.js. Collaborating with back-end developers to integrate APIs and ensuring seamless user experiences across various devices. Focused on optimizing performance, improving usability, and creating visually appealing interfaces to meet client needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </section>
+
+  <section id="portfolio">
+    <header> <h2 style="display: flex; flex-direction: row; justify-content: center  ;">PORTFOLIO</h2></header>
+
+    <!-- Portfolio Section -->
+    <!-- Existing Navbar, Hero Section, etc... -->
+
+   <!-- <header> <h2>Portfolio</h2></header> -->
+   <div class="portfolio">
+       <div class="portfolio-gallery">
+           <div class="portfolio-item" onclick="openProject('figma')">
+               <img src="images/code.jpg" alt="Project 1">
+               <div class="project-name">Figma</div>
+           </div>
+           <div class="portfolio-item" onclick="openProject('website')">
+               <img src="images/code2.jpeg" alt="Project 2">
+               <div class="project-name">Website</div>
+           </div>
+           <div class="portfolio-item" onclick="openProject('design')">
+               <img src="images/code3.avif" alt="Project 3">
+               <div class="project-name">Design</div>
+           </div>
+       </div>
+   </div>
+
+   <!-- Project Details Popup -->
+   <div  id="project-details"   class="project-details" >
+       <button class="close-btn" onclick="closeProject()">Close</button>
+       <div id="project-content" class="content"></div>
+   </div>
+
+   <script>
+       // JavaScript for Opening and Closing Projects
+       function openProject(projectName) {
+           const projectDetails = document.getElementById('project-details');
+           const projectContent = document.getElementById('project-content');
+           let content;
+
+           // Example project details (you can add more content here)
+           if (projectName === 'figma') {
+               content = `<h2>PORTFOLIO PROJECT</h2><p>Description:
+This project is a personal portfolio website designed to showcase my skills, projects, and experiences as a web developer. The website is built with a clean, modern, and responsive design, ensuring it looks great on all devices. It features a smooth, interactive navigation system that guides visitors through various sections, including my education, work experience, and contact details.
+
+Technologies used:
+
+HTML for structuring the content
+CSS (with Flexbox and Grid) for layout and styling
+JavaScript for interactive elements such as smooth scrolling and dynamic content loading
+Bootstrap for responsive design.</p> <a href="portfolio" target="_blank">View Project</a>`;
+           } else if (projectName === 'website') {
+               content = `<h2>WebPage Project</h2><p>"Welcome to my portfolio! I specialize in creating visually stunning and user-friendly websites that deliver exceptional experiences. With a passion for design and a keen eye for detail, I bring ideas to life through clean, modern, and responsive front-end development. Explore my projects to see how I can transform your digital vision into reality."</p> <a href="HTML" target="_blank">View Project</a> `;
+           } else if (projectName === 'design') {
+               content = `<h2>Design Project</h2><p> Design project.</p><img src="images/code.jpg" alt="Design Project">`;
+           }
+
+//             projectDetails.style.display = 'flex';:
+// Jab aap kisi project par click karte ho, yeh line popup ko dikhane ke liye hai.
+// Hum display: 'flex' use kar rahe hain, jo project-details ko fullscreen mode mein show karne ke liye hai.
+// Iska matlab hai ki popup ka container visible ho jayega.
+
+           projectContent.innerHTML = content;
+           projectDetails.style.display = 'flex';
+       }
+
+       function closeProject() {
+           const projectDetails = document.getElementById('project-details');
+           projectDetails.style.display = 'none';
+       }
+   </script>
+  </section>
+
+  <section id="contact">
+   
+     <!-- Header -->
+     <header> <h2 style="display: flex; flex-direction: row; justify-content: center  ;">CONTACT ME</h2></header>
+
+     <!-- Contact Section -->
+     <div class="contact-container">
+ 
+         <!-- Contact Form -->
+         <div class="contact-form">
+             <input type="text" placeholder="Write your name" id="name" name="name">
+             <input type="email" placeholder="Enter your email" id="email" name="email">
+             <input type="text" placeholder="Subject" id="subject" name="subject">
+             <textarea placeholder="Your message here..." id="message" name="message" rows="6"></textarea>
+             <button type="submit">Submit</button>
+         </div>
+ 
+         <!-- Personal Info Section -->
+         <div class="personal-info">
+             <p><span>Web Developer</span></p>
+             <p><span>Phone:</span> +92-321-600-1281</p>
+             <p><span>Email:</span> munaam1948@gmail.com</p>
+             <p><span>Website:</span> www.processing</p>
+ 
+             <!-- Social Media Icons -->
+             <div class="social-icons">
+                 <a href="#" class="fab fa-facebook-f"></a>
+                 <a href="#" class="fab fa-instagram"></a>
+                 <a href="#" class="fab fa-snapchat-ghost"></a>
+                 <a href="#" class="fab fa-twitter"></a>
+             </div>
+         </div>
+ 
+     </div>
+    
+    
+     
+  <script>
+    // Smooth Scroll Functionality
+    const navItems = document.querySelectorAll('.nav-item');
+
+    navItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Remove active class from all links
+        navItems.forEach(nav => nav.classList.remove('active'));
+
+        // Add active class to clicked link
+        item.classList.add('active');
+
+        // Scroll to the target section
+        const targetSection = document.querySelector(item.getAttribute('href'));
+        targetSection.scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
