@@ -22,6 +22,6 @@ You can explore my projects here, where I demonstrate my skills in HTML, CSS, Ja
 ## Installation
   clone the repository:
    bash
-   git clone https://munaam19.github.io/First_Project/portfolio/
+   git clone https://munaam19.github.io/First_Project/
 ## Live Demo
-    https://munaam19.github.io/First_Project/portfolio/
+https://munaam19.github.io/First_Project/
